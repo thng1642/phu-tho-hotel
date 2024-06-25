@@ -1,0 +1,65 @@
+@use "/src/base";
+
+.footer {
+  background-color: base.$begiebegie-100;
+  width: 100%;
+  .footer-content {
+    height: 310px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 1520px;
+    margin-left: auto;
+    margin-right: auto;
+    .heading-footer {
+      text-transform: uppercase;
+      color: base.$brown-brown-600;
+      /* Judson/28px */
+      font-family: Judson;
+      font-size: 28px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: normal;
+    }
+    .info-footer {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      gap: 12px;
+      color: base.$gray-gray-500;
+      font-family: Lato;
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 21px; /* 131.25% */
+    }
+    ul {
+      padding: 0;
+      list-style-position: inside;
+    }
+  }
+}
+.col-footer {
+  height: 220px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.contact-info-footer {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.footer-final {
+  background-color: base.$begiebegie-200;
+  color: base.$brown-brown-600;
+  text-align: center;
+  font-family: Lato;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  padding-top: 16px;
+  padding-bottom: 15px;
+}
