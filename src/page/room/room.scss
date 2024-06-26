@@ -1,0 +1,112 @@
+@use "src/base";
+
+.landing-img-room {
+  background: linear-gradient(
+      0deg,
+      rgba(0, 0, 0, 0.5) 0%,
+      rgba(0, 0, 0, 0.5) 100%
+    ),
+    url("https://firebasestorage.googleapis.com/v0/b/alta-875f0.appspot.com/o/home-slide%2F3ea946430e67205fee54d588c55991a9.png?alt=media&token=1b1b6171-a4ca-49fb-a8e6-b6806ef3679f")
+      lightgray -117px -382.12px / 106.094% 204.877% no-repeat;
+  width: 1920px;
+  height: 661px;
+  flex-shrink: 0;
+}
+.landing-room-content {
+  width: 100%;
+  height: 100%;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 24px;
+  > h3 {
+    font-family: Judson;
+    font-size: 48px;
+    font-weight: 700;
+    text-transform: uppercase;
+    line-height: normal;
+    font-style: normal;
+  }
+  > p {
+    text-align: center;
+    width: 976px;
+    font-family: Lato;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 26px; /* 130% */
+  }
+}
+.room {
+  padding-top: 68px;
+  padding-bottom: 80px;
+}
+.list-feedback-container {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  align-items: center;
+}
+.feedback-customer {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+.more-feedback {
+  text-align: center;
+  margin-bottom: 32px;
+  margin-top: 32px;
+  color: base.$brown-brown-500;
+  font-family: Lato;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px; /* 111.111% */
+  text-decoration-line: underline;
+}
+.write-feedback-container {
+  background: base.$begiebegie-100;
+  display: flex;
+  width: 100%;
+  padding: 28px 0px;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+.input-fields-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+}
+.submit-btn {
+  box-sizing: border-box;
+  background-color: base.$brown-brown-500;
+  display: flex;
+  padding: 10px 24px;
+  width: 130px;
+  height: 48px;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  border-radius: 8px;
+  color: #fff;
+  /* Inter/18/18px: Semi Bold */
+  font-family: Inter;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+.submit-btn:hover {
+  background-color: base.$brown-brown-600;
+  cursor: pointer;
+}
+.other-rooms-container {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  padding: 68px 200px 80px;
+}

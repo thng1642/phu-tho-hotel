@@ -1,0 +1,47 @@
+@use "src/base";
+
+.feedback-container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 808px;
+}
+.header-feedback {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  img {
+    height: 80px;
+    width: 80px;
+    object-fit: cover;
+    border-radius: 100px;
+  }
+  h4 {
+    color: base.$gray-gray-600;
+    font-family: Lato;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+  }
+  span {
+    color: base.$gray-gray-500;
+    font-family: Lato;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+  }
+}
+.content-feedback {
+  padding: 12px;
+  color: base.$gray-gray-500;
+  /* Lato/16px: Regular */
+  font-family: Lato;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px; /* 125% */
+  border-radius: 12px;
+  background: base.$begiebegie-50;
+}

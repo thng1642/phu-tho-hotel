@@ -1,0 +1,237 @@
+@use "src/base";
+
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-float infinite 3s ease-in-out;
+  }
+}
+
+.App-header {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+}
+
+.App-link {
+  color: rgb(112, 76, 182);
+}
+
+@keyframes App-logo-float {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(10px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+.btn {
+  cursor: pointer;
+  display: inline-flex;
+  height: 48px;
+  padding: 0px 20px;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+  background-color: base.$brown-brown-500;
+  color: #fff;
+  font-family: Lato;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+.btn:hover {
+  background-color: base.$brown-brown-600;
+}
+
+.landing-img-airport {
+  background: linear-gradient(
+      0deg,
+      rgba(0, 0, 0, 0.6) 0%,
+      rgba(0, 0, 0, 0.6) 100%
+    ),
+    url("https://images.unsplash.com/photo-1549897411-b06572cdf806?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8YWlycG9ydCUyMHRlcm1pbmFsfGVufDB8fDB8fHww")
+      lightgray 0px -541.235px / 100% 230.948% no-repeat;
+  background-size: cover;
+  width: 1920px;
+  height: 538px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 24px;
+  h3 {
+    color: #fff;
+    text-align: center;
+    text-transform: uppercase;
+    /* Judson/48px */
+    font-family: Judson;
+    font-size: 48px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+  }
+}
+.landing-img-breakfast {
+  background: linear-gradient(
+      0deg,
+      rgba(0, 0, 0, 0.6) 0%,
+      rgba(0, 0, 0, 0.6) 100%
+    ),
+    url("https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")
+      lightgray 0px -541.235px / 100% 230.948% no-repeat;
+  background-size: cover;
+  width: 1920px;
+  height: 538px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 24px;
+  h3 {
+    color: #fff;
+    text-align: center;
+    text-transform: uppercase;
+    /* Judson/48px */
+    font-family: Judson;
+    font-size: 48px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+  }
+}
+.landing-img-massage {
+  background: linear-gradient(
+      0deg,
+      rgba(0, 0, 0, 0.5) 0%,
+      rgba(0, 0, 0, 0.5) 100%
+    ),
+    url("https://images.unsplash.com/photo-1598901986949-f593ff2a31a6?q=80&w=2097&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")
+      lightgray 0px -253.135px / 100% 230.948% no-repeat;
+  background-size: cover;
+  width: 1920px;
+  height: 538px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 24px;
+  h3 {
+    color: #fff;
+    text-align: center;
+    text-transform: uppercase;
+    /* Judson/48px */
+    font-family: Judson;
+    font-size: 48px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+  }
+}
+.intro-airport-container,
+.intro-breakfast-container,
+.intro-massage-container {
+  display: flex;
+  width: 1520px;
+  align-items: center;
+  gap: 24px;
+  flex-direction: column;
+  margin-left: auto;
+  margin-right: auto;
+  img {
+    width: 748px;
+    height: 360px;
+    flex-shrink: 0;
+    object-fit: cover;
+  }
+}
+.intro-airport-row,
+.intro-breakfast-row,
+.intro-massage-row {
+  width: 100%;
+  display: flex;
+  gap: 24px;
+  align-items: center;
+}
+.intro-airport-row:nth-child(odd) {
+  .intro-airport-content {
+    width: 473px;
+  }
+}
+.intro-airport-row:nth-child(even) {
+  display: flex;
+  justify-content: end;
+  .intro-airport-content {
+    width: 497px;
+    text-align: right;
+  }
+}
+.intro-massage-row:nth-child(odd) {
+  .intro-massage-content {
+    width: 473px;
+  }
+}
+.intro-massage-row:nth-child(even) {
+  display: flex;
+  justify-content: end;
+  .intro-massage-content {
+    width: 497px;
+    text-align: right;
+  }
+}
+.intro-breakfast-row:nth-child(odd) {
+  .intro-breakfast-content {
+    width: 473px;
+  }
+}
+.intro-breakfast-row:nth-child(even) {
+  display: flex;
+  justify-content: end;
+  .intro-breakfast-content {
+    width: 497px;
+    text-align: right;
+  }
+}
+.intro-airport-content,
+.intro-breakfast-content,
+.intro-massage-content {
+  h3 {
+    color: base.$brown-brown-500;
+    font-family: Judson;
+    font-size: 36px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    margin-bottom: 16px;
+  }
+  p {
+    color: base.$gray-gray-500;
+    font-family: Lato;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px; /* 125% */
+  }
+}
+.services-news {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  width: 1520px;
+  margin-bottom: 80px;
+}

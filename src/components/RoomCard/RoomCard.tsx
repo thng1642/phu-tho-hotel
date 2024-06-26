@@ -1,12 +1,18 @@
+import { useNavigate } from 'react-router-dom'
 import './index.scss'
 
 function RoomCard(props: any) {
+    const nav = useNavigate()
     const tmp = Object.keys(props)
     const x = ["name", "id", "price", "img1", "img2", "img3", "img4", "img5"]
     const services = tmp.filter(item => !x.includes(item))
 
     return (
-        <div className='layout-room' >
+        <div className='layout-room'
+            onClick={(e) => {
+                nav(`/phongnghi/:${props.id}`, { state: props.id })
+            }}
+        >
             <div className='bg-room-card' style={{ background: `url(${props.img1}) lightgray 50% / cover no-repeat` }}>
                 <div></div>
             </div>

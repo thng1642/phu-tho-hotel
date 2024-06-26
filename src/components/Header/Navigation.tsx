@@ -1,4 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
+import { useLocation, useNavigate } from 'react-router-dom'
+
 import './index.scss'
 import Dropdown from './Dropdown'
 
@@ -10,6 +12,8 @@ function Navigation() {
     const [openDropdown, setOpenDropdown] = useState(false)
     const [isDropdownRoom, setIsDropdownRoom] = useState(false)
     const searchBoxRef = useRef(null)
+    const nav = useNavigate()
+    const location = useLocation()
     const setUpDropdownSearch = (e: MouseEvent) => {
         if (searchBoxRef.current !== e.target) {
             setOpenDropdown(false)
@@ -19,18 +23,22 @@ function Navigation() {
         document.addEventListener('click', setUpDropdownSearch, true)
         return () => document.removeEventListener('click', setUpDropdownSearch)
     }, [])
+
     return (
         <nav className="header-nav">
             <div className='left-nav'>
-                <div className='focused'>
-                    Trang chủ
-                    {/* Dropdown */}
+                <div className={`${location.pathname === '/' ? "focused" : ''}`}>
+                    <span
+                        onClick={() => nav('/')}
+                    >Trang chủ</span>
+                    {/* {isDropdownRoom ? <Dropdown items={listRooms} handlerMouseOut={setIsDropdownRoom} isClose={isDropdownRoom} /> : null} */}
                 </div>
-                <div>
-                    <span 
-                        onMouseEnter={()=>setIsDropdownRoom(true)}
+                <div className={`${location.pathname.includes('phongnghi') ? "focused" : ''}`}>
+                    <span
+                        onMouseEnter={() => setIsDropdownRoom(true)}
                         // onMouseOut={()=> setIsDropdownRoom(false)}
-                        >
+                        onClick={() => nav('/phongnghi')}
+                    >
                         Phòng nghỉ</span>
                     {isDropdownRoom ? <Dropdown items={listRooms} handlerMouseOut={setIsDropdownRoom} isClose={isDropdownRoom} /> : null}
                 </div>
