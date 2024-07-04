@@ -1,4 +1,5 @@
-import { Dispatch, SetStateAction } from "react"
+import { Dispatch, SetStateAction, useLayoutEffect, useState } from "react"
+import { useLocation, useNavigate } from "react-router-dom"
 
 function DecorationDropdown() {
     return (
@@ -33,24 +34,48 @@ function DecorationDropdown() {
         </div>
     )
 }
+export interface Item {
+    name: string
+    id: string
+}
 type Props = {
-    items: string[],
+    items: Item[],
     handlerMouseOut: Dispatch<SetStateAction<boolean>>,
     isClose: boolean
 }
-function Dropdown(props:Props) {
+function Dropdown(props: Props) {
+    const [selected, setSelected] = useState('')
+    const location = useLocation()
+    const nav = useNavigate()
+    const handleClick = (id: string) => {
+        const path = location.pathname.split('/')
+        // if (path[2] !== id) {
+        nav(`/${path[1]}/${id}`, { state: id })
+        // }
+    }
+    useLayoutEffect(() => {
+        const tmp = location.pathname.split('/')[2]
+        setSelected(tmp)
+    }, [location.pathname])
     return (
         <div className='dropdown'
-            onMouseLeave={() =>{
+            onMouseLeave={() => {
                 props.handlerMouseOut(false)
             }}
         >
             <DecorationDropdown />
             <div className='list-items'>
                 {
-                    props.items.map((value, index) => (
-                        <p key={index} className='dropdown-items'>{value}</p>
-                    ))
+                    props.items.map((value, index) => {
+                        const style = 'dropdown-items--focus'
+                        if (selected === value.id)
+                            return (
+                                <p onClick={() => handleClick(value.id)} key={index} className={style + ' dropdown-items'}>{value.name}</p>
+                            )
+                        return (
+                            <p onClick={() => handleClick(value.id)} key={index} className='dropdown-items'>{value.name}</p>
+                        )
+                    })
                 }
             </div>
         </div>

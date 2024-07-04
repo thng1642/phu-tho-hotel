@@ -1,0 +1,91 @@
+@use "src/base";
+.tag-container {
+  cursor: pointer;
+  display: flex;
+  width: 748px;
+  overflow: hidden;
+  gap: 32px;
+  padding-right: 32px;
+  > div:first-child {
+    position: relative;
+    width: 306px;
+    height: 100%;
+    .tag-hover {
+      position: absolute;
+      width: 100%;
+      top: 0;
+      background-color: rgba(0, 0, 0, 0.5);
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      opacity: 0;
+
+      color: white;
+      text-align: center;
+      font-family: Judson;
+      font-size: 20px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+    }
+  }
+  .img-tag {
+    display: flex;
+    width: 306px;
+    height: 100%;
+    object-fit: cover;
+    transition: all 0.3ms ease-out;
+  }
+  .header-tag {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    > span {
+      color: base.$gray-gray-600;
+      font-family: Lato;
+      font-size: 14px;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+    > h3 {
+      color: base.$brown-brown-500;
+      font-family: Judson;
+      font-size: 28px;
+      font-weight: 700;
+    }
+    > p {
+      // width: 378px;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 2;
+
+      color: base.$gray-gray-500;
+      /* Lato/16px: Regular */
+      font-family: Lato;
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 125%;
+    }
+  }
+  .footer-tag {
+    display: flex;
+    gap: 10px;
+    div {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+  }
+}
+.tag-container:hover {
+  .img-tag {
+    overflow: hidden;
+    // transform: scale(1.02);
+  }
+  .tag-hover {
+    opacity: 1 !important;
+  }
+}

@@ -13,13 +13,10 @@ const initialState = [] as Feedback[];
 
 export const fetchFeedback = createAsyncThunk(
   "/fetch/feedback",
-  async (roomId: string) => {
+  async (roomId: string = "xq7i2X2INpk5sFaHskcg") => {
     const result = [] as Feedback[];
     const querySnapshot = await getDocs(
-      query(
-        collection(FIREBASE, "comment"),
-        where("roomId", "==", "xq7i2X2INpk5sFaHskcg")
-      )
+      query(collection(FIREBASE, "comment"), where("roomId", "==", roomId))
     );
 
     querySnapshot.forEach((doc) => {

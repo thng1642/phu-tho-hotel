@@ -1,23 +1,26 @@
-$brown-brown-500: #DBA765;
+$brown-brown-500: #dba765;
 $gray-gray-300: #999999;
-$brown-brown-400: #E2B984;
-$brown-brown-600: #A7722F;
+$brown-brown-400: #e2b984;
+$brown-brown-600: #a7722f;
+$gray-gray-100: #dddddd;
 $gray-gray-500: #555555;
 $gray-gray-600: #404040;
-$begiebegie-50: #F9F7F4;
-$begiebegie-100: #F2EFE8;
-$begiebegie-200: #E5DED2;
+$begiebegie-50: #f9f7f4;
+$begiebegie-100: #f2efe8;
+$begiebegie-200: #e5ded2;
+$begiebegie-600: #8f826b;
 
 body {
+  position: relative;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }

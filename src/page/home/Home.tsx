@@ -56,7 +56,9 @@ export default function Home() {
     const relativeNews = useSelector((state: RootState) => state.relative)
 
     useEffect(() => {
+
         dispatch(fetchRoom())
+
         dispatch(fetchRelative())
     }, [])
 

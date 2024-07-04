@@ -2,14 +2,24 @@ import { useEffect } from "react";
 import { useAppDispatch, useAppSelector } from "../../app/hooks";
 import { RootState } from "../../app/store";
 import DecoHeader from "../../components/Deco-title/DecoHeader";
-import { fetchAirportCard } from "../../redux/airport/airportCardSlice";
 import NewsCard from "../../components/NewsCard/NewsCard";
+import { fetchAirportCard } from "../../redux/airport/airportCardSlice";
+import { fetchMassageCard } from "../../redux/home/massageCardSlice";
+import './index.scss';
+
+import "react-multi-carousel/lib/styles.css";
+import { Slider } from "../../components/Slider";
+import { useNavigate } from "react-router-dom";
 
 export default function HomeMassage() {
+  const nav = useNavigate()
   const dispatch = useAppDispatch()
   const airportCardsSelector = useAppSelector((state: RootState) => state.airportCard)
+  const massageCardSelector = useAppSelector((state: RootState) => state.massageCard)
+
   useEffect(() => {
     dispatch(fetchAirportCard())
+    dispatch(fetchMassageCard())
   }, [])
   return (
     <section style={{
@@ -21,6 +31,42 @@ export default function HomeMassage() {
       <div className="landing-img-massage">
         <h3>dịch vụ massage khách sạn phú thọ quận 11</h3>
         <DecoHeader name="" />
+      </div>
+      <div style={{
+        display: 'flex',
+        flexDirection: 'column',
+        backgroundColor: '#F2EFE8',
+        width: '100%',
+        padding: '48px 105px',
+        alignItems: 'center',
+        gap: 32
+      }}>
+        <DecoHeader name="các loại phòng massage" />
+        <div className="list-card-massage">
+          <Slider slides={massageCardSelector} visibleItemsNumber={4}>
+            {(slide: any) => (
+              <div className="card-massage"
+                onClick={() => nav(`/massage/${slide.id}`, { state: slide.id })}
+              >
+                <div style={{
+                  position: 'relative',
+                  width: 362,
+                  height: 200,
+                }}>
+                  <img src={slide.img} alt="anh" />
+                  <div className="hover-card-massage">Xem thêm</div>
+                </div>
+                <div className="card-massage-content">
+                  <div className="card-massage-content-header">
+                    <h3>Phòng {slide.name}</h3>
+                    <DecoHeader name="" />
+                  </div>
+                  <p>{slide.description}</p>
+                </div>
+              </div>
+            )}
+          </Slider>
+        </div>
       </div>
       <div className="intro-massage-container">
         <div className="intro-massage-row">

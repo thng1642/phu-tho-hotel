@@ -17,7 +17,22 @@ export const fetchRelative = createAsyncThunk(
     return listNews;
   }
 );
-
+export const fetchNewsTag = createAsyncThunk("api/fetch/tag", async () => {
+  const querySnapshot = await getDocs(collection(FIREBASE, "breakfast"));
+  const listTags = [] as News[];
+  querySnapshot.forEach((doc) => {
+    listTags.push({
+      id: doc.id,
+      author: doc.data().author,
+      dateAt: doc.data().dateAt,
+      img1: doc.data().img1,
+      "short-des": doc.data().des,
+      title: doc.data().title,
+      tag: doc.data().tag,
+    });
+  });
+  return listTags;
+});
 const initialState = [] as News[];
 
 const newsCardSlice = createSlice({
@@ -26,7 +41,9 @@ const newsCardSlice = createSlice({
   reducers: {},
   extraReducers: (builder) => {
     builder.addCase(fetchRelative.fulfilled, (state, action) => {
-      // console.log(action.payload);
+      return action.payload;
+    });
+    builder.addCase(fetchNewsTag.fulfilled, (state, action) => {
       return action.payload;
     });
   },

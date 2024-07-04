@@ -27,7 +27,29 @@
 .App-link {
   color: rgb(112, 76, 182);
 }
-
+.icon-contact {
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  bottom: 121px;
+  right: 100px;
+  z-index: 1000;
+  div {
+    width: 56px;
+    height: 56px;
+    background-color: #fff;
+    border-radius: 31px;
+    box-shadow: 0px 2px 15px 0px rgba(0, 0, 0, 0.15);
+  }
+  div:hover {
+    cursor: pointer;
+    background-color: #dba765;
+    svg:hover {
+      fill: white;
+    }
+  }
+}
 @keyframes App-logo-float {
   0% {
     transform: translateY(0);

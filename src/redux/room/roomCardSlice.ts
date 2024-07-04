@@ -1,10 +1,6 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { initializeApp } from "firebase/app";
-import {
-  collection,
-  getDocs,
-  getFirestore
-} from "firebase/firestore";
+import { collection, getDocs, getFirestore } from "firebase/firestore";
 
 const firebaseConfig = {
   apiKey: "AIzaSyAwCp2LFwDIH2Td2oJGz8LbAJIdUn6R8pQ",
@@ -20,33 +16,37 @@ const app = initializeApp(firebaseConfig);
 // Initialize Cloud Firestore and get a reference to the service
 const db = getFirestore(app);
 
-const initialState = [] as any;
+const initialState = [] as any[];
 
 export const fetchRoom = createAsyncThunk("fetchRoom", async (thunkApi) => {
   const querySnapshot = await getDocs(collection(db, "rooms"));
   const listRoom = [] as any[];
   querySnapshot.forEach((doc) => {
     listRoom.push({
-      ...doc.data(), 
-      id: doc.id
-    })
-  })
-  return listRoom
+      ...doc.data(),
+      id: doc.id,
+    });
+  });
+  return listRoom;
 });
 const roomCardSlice = createSlice({
   name: "room-card",
   initialState,
   reducers: {
     testReducer() {},
+    getRoomsFromLocalStorage() {
+      const localRooms = localStorage.getItem("list-rooms");
+      if (localRooms) return JSON.parse(localRooms);
+    },
   },
   extraReducers: (builder) => {
     builder.addCase(fetchRoom.fulfilled, (state, action) => {
-        let n = action.payload.length
-        const result = [] as any[]
-        for (let i = 0; i < n; i++) {
-          result.push(action.payload[i])
-        }
-        return result
+      let n = action.payload.length;
+      const result = [] as any[];
+      for (let i = 0; i < n; i++) {
+        result.push(action.payload[i]);
+      }
+      return result;
     });
     builder.addCase(fetchRoom.rejected, (state, action) => {
       console.log(action.error.message);

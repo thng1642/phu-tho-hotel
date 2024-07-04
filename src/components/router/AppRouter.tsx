@@ -6,6 +6,9 @@ import StandardRoom from "../../page/room/StandardRoom";
 import Airport from "../../page/services/airport/Airport";
 import Breakfast from "../../page/services/breakfast/Breakfast";
 import HomeMassage from "../../page/massage/HomeMassage";
+import Contact from "../../page/contact/Contact";
+import Searching from "../../page/search/Searching";
+import DetailsMassage from "../../page/massage/DetailsMassage";
 
 function AppRouter() {
   return (
@@ -18,6 +21,9 @@ function AppRouter() {
           <Route path="dichvu" element={<Airport />} />
           <Route path="diemtam" element={<Breakfast />} />
           <Route path="massage" element={<HomeMassage />} />
+          <Route path="massage/:id" element={<DetailsMassage />} />
+          <Route path="contact" element={<Contact />} />
+          <Route path="search" element={<Searching />} />
         </Route>
       </Routes>
     </BrowserRouter>

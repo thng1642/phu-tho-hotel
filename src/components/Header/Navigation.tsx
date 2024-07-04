@@ -4,13 +4,52 @@ import { useLocation, useNavigate } from 'react-router-dom'
 import './index.scss'
 import Dropdown from './Dropdown'
 
-const listRooms = ['Phòng Standard', 'Phòng Dulex 2 giường', 'Phòng Delux 1 giường', 'Phòng Suite']
-const listMassage = ['Phòng VIP Nhật', 'Phòng VIP Ai Cập', 'Phòng VIP Hawaii', 'Phòng VIP Thái Lan', 'Phòng VIP Trung Quốc', 'Phòng VIP Thiên nhiên', 'Phòng VIP Việt Nam']
+const listRooms = [
+    {
+        name: 'Phòng Standard',
+        id: "xq7i2X2INpk5sFaHskcg"
+    },
+    {
+        name: 'Phòng Dulex 2 giường',
+        id: 'r2OleHegdqJZ2zcIai9C'
+    },
+    {
+        name: 'Phòng Delux 1 giường',
+        id: 'i8b8bGrHcPLAHB4SyF3c'
+    },
+    {
+        name: 'Phòng Suite',
+        id: 'TlDj3rXSbEHSGTcNtXKp'
+    }
+
+]
+const listMassage = [
+    { name: 'Phòng VIP Nhật', id: 'j5jInN5VBspMlQY2XCSX' },
+    {
+        name: 'Phòng VIP Ai Cập',
+        id: 'fLpDUDZANUl0c3yp81Fn'
+    },
+    {
+        id: '7z3lx3Q2qEIS79x4JOIz',
+        name: 'Phòng VIP Hawaii',
+    },
+    { name: 'Phòng VIP Thái Lan', id: 'uFs2UpDkeHcgJ3yQlR2S' },
+    { id: 'isYKXymFgaVmyxPJIDsF', name: 'Phòng VIP Trung Quốc' },
+    {
+        id: 'XFCz5R0VlcsULEBLcNfV',
+        name: 'Phòng VIP Thiên nhiên'
+    },
+    {
+        id: 'bsMbNwH31dTHBJJqfm1p',
+        name: 'Phòng VIP Việt Nam'
+    }
+]
 const listOtherSer = ['Đưa đón sân bay', 'Nhà hàng điểm tâm']
 
 function Navigation() {
     const [openDropdown, setOpenDropdown] = useState(false)
     const [isDropdownRoom, setIsDropdownRoom] = useState(false)
+    const [isDropdownMassage, setIsDropdownMassage] = useState(false)
     const searchBoxRef = useRef(null)
     const nav = useNavigate()
     const location = useLocation()
@@ -31,12 +70,10 @@ function Navigation() {
                     <span
                         onClick={() => nav('/')}
                     >Trang chủ</span>
-                    {/* {isDropdownRoom ? <Dropdown items={listRooms} handlerMouseOut={setIsDropdownRoom} isClose={isDropdownRoom} /> : null} */}
                 </div>
                 <div className={`${location.pathname.includes('phongnghi') ? "focused" : ''}`}>
                     <span
                         onMouseEnter={() => setIsDropdownRoom(true)}
-                        // onMouseOut={()=> setIsDropdownRoom(false)}
                         onClick={() => nav('/phongnghi')}
                     >
                         Phòng nghỉ</span>
@@ -44,12 +81,30 @@ function Navigation() {
                 </div>
             </div>
             <div>
-                <img src="https://firebasestorage.googleapis.com/v0/b/alta-875f0.appspot.com/o/logo_hotel.png?alt=media&token =097554a5-59f8-464a-9832-dbc63d996d64" alt="logo-hotel" />
+                <img src="https://firebasestorage.googleapis.com/v0/b/alta-875f0.appspot.com/o/logo_hotel.png?alt=media&token=097554a5-59f8-464a-9832-dbc63d996d64" alt="logo-hotel" />
             </div>
             <div className='right-nav'>
-                <div>massage</div>
-                <div>các dịch vụ khác</div>
-                <div>liên hệ</div>
+                <div className={`${location.pathname.includes('massage') ? "focused" : ''}`} ><span
+                    onMouseEnter={() => setIsDropdownMassage(true)}
+                    onClick={() => nav('/massage')}
+                >massage
+                </span>
+                    {isDropdownMassage ? <Dropdown items={listMassage} handlerMouseOut={setIsDropdownMassage} isClose={isDropdownMassage} /> : null}
+                </div>
+                <div className={`${location.pathname.includes('dichvu') ? "focused" : ''}`} ><span
+                    // onMouseEnter={() => setIsDropdownMassage(true)}
+                    onClick={() => nav('/dichvu')}
+                >các dịch vụ khác
+                </span>
+                    {/* {isDropdownMassage ? <Dropdown items={listMassage} handlerMouseOut={setIsDropdownMassage} isClose={isDropdownMassage} /> : null} */}
+                </div>
+                <div className={`${location.pathname.includes('contact') ? "focused" : ''}`} ><span
+                    // onMouseEnter={() => setIsDropdownMassage(true)}
+                    onClick={() => nav('/contact')}
+                >liên hệ
+                </span>
+                    {/* {isDropdownMassage ? <Dropdown items={listMassage} handlerMouseOut={setIsDropdownMassage} isClose={isDropdownMassage} /> : null} */}
+                </div>
             </div>
             <div className="nav-search">
                 <div className='search-box--header' ref={searchBoxRef} onClick={() => setOpenDropdown(true)}>

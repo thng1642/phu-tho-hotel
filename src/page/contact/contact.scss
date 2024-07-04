@@ -1,0 +1,102 @@
+@use "/src/base";
+
+.header-contact {
+  width: 1920px;
+  height: 538px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 68px;
+  h2 {
+    text-transform: uppercase;
+    color: #fff;
+    text-align: center;
+    /* Judson/48px */
+    font-family: Judson;
+    font-size: 48px;
+    font-weight: 700;
+    line-height: normal;
+    margin-bottom: 24px;
+  }
+  background: linear-gradient(
+      0deg,
+      rgba(0, 0, 0, 0.6) 0%,
+      rgba(0, 0, 0, 0.6) 100%
+    ),
+    url("https://firebasestorage.googleapis.com/v0/b/alta-875f0.appspot.com/o/landing-hotel.png?alt=media&token=05225d1c-67f8-4789-b32f-cf7fa58cf877")
+      lightgray 0px -253.135px / 100% 230.948% no-repeat;
+}
+.info-contact-container {
+  width: fit-content;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  margin-left: auto;
+  margin-right: auto;
+  > div {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+.info-contact {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  > p {
+    color: base.$gray-gray-500;
+    font-family: Lato;
+    font-size: 16px;
+    font-weight: 500;
+  }
+  > h3 {
+    color: base.$brown-brown-500;
+    font-family: Lato;
+    font-size: 16px;
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+}
+.info-contact:nth-child(2) {
+  position: relative;
+  width: 236px;
+  text-align: center;
+}
+.info-contact:nth-child(2)::before {
+  content: "";
+  z-index: 100;
+  position: absolute;
+  width: 2px;
+  height: 95px;
+  background-color: base.$gray-gray-100;
+  top: 50%;
+  transform: translateY(calc(-95px / 2));
+  right: -48px;
+}
+.info-contact:nth-child(2)::after {
+  content: "";
+  z-index: 100;
+  position: absolute;
+  width: 2px;
+  height: 95px;
+  background-color: base.$gray-gray-100;
+  top: 50%;
+  transform: translateY(calc(-95px / 2));
+  left: -48px;
+}
+.help-me-contact {
+  background-color: base.$begiebegie-100;
+  padding: 48px 200px;
+  h4 {
+    color: base.$gray-gray-600;
+    text-align: center;
+    font-family: Judson;
+    font-size: 36px;
+    font-weight: 700;
+    line-height: 120%; /* 43.2px */
+    margin-bottom: 40px;
+  }
+}
