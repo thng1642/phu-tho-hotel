@@ -39,6 +39,7 @@ export interface Item {
     id: string
 }
 type Props = {
+    name: String,
     items: Item[],
     handlerMouseOut: Dispatch<SetStateAction<boolean>>,
     isClose: boolean
@@ -48,10 +49,7 @@ function Dropdown(props: Props) {
     const location = useLocation()
     const nav = useNavigate()
     const handleClick = (id: string) => {
-        const path = location.pathname.split('/')
-        // if (path[2] !== id) {
-        nav(`/${path[1]}/${id}`, { state: id })
-        // }
+        nav(`/${props.name}/${id}`, { state: id })
     }
     useLayoutEffect(() => {
         const tmp = location.pathname.split('/')[2]

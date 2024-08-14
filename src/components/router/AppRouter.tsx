@@ -23,7 +23,7 @@ function AppRouter() {
           <Route path="massage" element={<HomeMassage />} />
           <Route path="massage/:id" element={<DetailsMassage />} />
           <Route path="contact" element={<Contact />} />
-          <Route path="search" element={<Searching />} />
+          <Route path="search/:search" element={<Searching />} />
         </Route>
       </Routes>
     </BrowserRouter>

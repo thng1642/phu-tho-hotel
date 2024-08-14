@@ -1,15 +1,15 @@
-import { useEffect, useLayoutEffect, useState } from "react"
-import { useLocation } from "react-router-dom"
 import { Carousel, Input } from "antd"
+import { useEffect, useState } from "react"
+import { useLocation } from "react-router-dom"
 
 import { useAppDispatch, useAppSelector } from "../../app/hooks"
-import { fetchFeedback } from "../../redux/room/feebackRoomSlice"
 import { RootState } from "../../app/store"
 import DecoHeader from "../../components/Deco-title/DecoHeader"
 import Feedback from "../../components/Feedback/Feedback"
 import NewsCard from "../../components/NewsCard/NewsCard"
 import { fetchingDetailRoom } from "../../redux/room/detailRoomSlice"
-import { fetchRoom, roomCardReduces } from "../../redux/room/roomCardSlice"
+import { fetchFeedback } from "../../redux/room/feebackRoomSlice"
+import { fetchRoom } from "../../redux/room/roomCardSlice"
 
 const { TextArea } = Input
 const inputFieldCSS: React.CSSProperties = {
@@ -64,7 +64,7 @@ function StandardRoom() {
       setNameRoom(roomCurrent[0].name)
       setSlides(old => [roomCurrent[0].img1, roomCurrent[0].img2, roomCurrent[0].img3, roomCurrent[0].img4, roomCurrent[0].img5])
     }
-  }, [otherRooms])
+  }, [otherRooms, location.state])
   return (
     <section>
       {/* Slide */}
