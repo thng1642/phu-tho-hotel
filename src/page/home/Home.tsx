@@ -10,6 +10,7 @@ import RoomCard from '../../components/RoomCard/RoomCard'
 import { fetchRelative } from '../../redux/home/newsCardSlice'
 import { fetchRoom } from '../../redux/room/roomCardSlice'
 import './home.scss'
+import { useNavigate } from 'react-router-dom'
 
 interface Slide {
     heading: string,
@@ -54,7 +55,7 @@ export default function Home() {
     const bodyRef = useRef<HTMLElement | null>(null)
     const listRoom = useSelector((state: RootState) => state.rooms)
     const relativeNews = useSelector((state: RootState) => state.relative)
-
+    const nav = useNavigate()
     useEffect(() => {
 
         dispatch(fetchRoom())
@@ -139,7 +140,9 @@ export default function Home() {
                             <div>
                                 <h3 className='item-title'>Massage</h3>
                                 <p>Massage vốn được xem là một trong những dịch vụ không thể bỏ qua <br /> tại khách sạn Phú Thọ quận 11. Những bài xoa bóp trị liệu cơ xương<br /> khớp, sẽ giúp quý khách phục hồi sức khỏe nhanh chóng.</p>
-                                <div className='btn'>
+                                <div className='btn'
+                                    onClick={() => nav('/massage')}
+                                >
                                     Khám phá ngay
                                 </div>
                             </div>

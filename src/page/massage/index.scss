@@ -69,3 +69,32 @@
     }
   }
 }
+.details-massage {
+  width: 1006px;
+  margin-right: auto;
+  margin-left: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 68px;
+}
+.des-massage {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  gap: 12px;
+}
+.collection-massage {
+  width: 1006px;
+  > div {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    // grid-template-rows: ;
+    img {
+      height: 286px;
+      width: 100%;
+      object-fit: cover;
+    }
+  }
+}
